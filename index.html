@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Uma palavra pra você ✨</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      background: #1C1C1C; /* fundo acinzentado */
+    }
+
+    .logo {
+      width: 160px; /* tamanho equilibrado */
+      max-width: 40%;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      max-width: 700px;
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 18px;
+      color: #555;
+      margin: 0 0 12px;
+    }
+
+    p {
+      font-size: 28px;
+      line-height: 1.3;
+      margin: 0 0 18px;
+      color: #333;
+    }
+
+    small {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Substitua "logo.png" pelo link da sua imagem -->
+  <img src="logo.png" alt="Logo Luz para os Povos" class="logo" />
+
+  <div class="card">
+    <h1>Uma palavra pra você</h1>
+    <p id="frase">…</p>
+    <div style="margin-top:12px">
+      <small>Compartilhe com alguém hoje 💛</small>
+    </div>
+  </div>
+
+  <script>
+    const FRASES = [
+      "“Não desista! Deus quer te ensinar no processo!”",
+      "“Você não está sozinho!”",
+      "“Se envolva, seguir a Cristo é estar junto ao corpo.”",
+      "“O amor nunca falha.” (1 Coríntios 13:8)"
+    ];
+
+    function sortear() {
+      const i = Math.floor(Math.random() * FRASES.length);
+      document.getElementById('frase').textContent = FRASES[i];
+    }
+
+    sortear();
+  </script>
+</body>
+</html>
