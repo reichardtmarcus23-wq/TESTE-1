@@ -35,13 +35,12 @@
     .card {
       max-width: 700px;
       background: rgba(255, 255, 255, 0.95);
-      padding: 36px 28px 60px; /* mais espaço para a logo abaixo */
-      border-radius: 20px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       text-align: center;
       z-index: 2;
       animation: fadeInUp 1s ease forwards;
-      position: relative;
     }
 
     h1 {
@@ -71,15 +70,21 @@
       font-size: 15px;
     }
 
-    /* Logo movida para dentro do card */
     .logo {
-      width: 140px;
-      margin-top: 28px;
+      width: 160px;
+      max-width: 40%;
+      margin-top: 24px;
+      z-index: 2;
       filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.25));
       animation: fadeIn 1.5s ease forwards;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    /* Animações suaves */
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
@@ -106,10 +111,10 @@
     <div style="margin-top:12px">
       <small>Compartilhe com alguém hoje 💛</small>
     </div>
-
-    <!-- Logo agora está dentro do card, abaixo do texto -->
-    <img src="logo.png" alt="Logo Luz para os Povos" class="logo" />
   </div>
+
+  <!-- Logo posicionada fora da box, abaixo -->
+  <img src="logo.png" alt="Logo Luz para os Povos" class="logo" />
 
   <script>
     const FRASES = [
