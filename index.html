@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Uma palavra pra você ✨</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap');
+
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -14,45 +16,89 @@
       min-height: 100vh;
       margin: 0;
       padding: 24px;
-      background: #1C1C1C; /* fundo acinzentado */
+      background: radial-gradient(circle at top, #2c2c2c 0%, #0f0f0f 100%);
+      color: #fff;
+      overflow: hidden;
     }
 
-    .logo {
-      width: 160px; /* tamanho equilibrado */
-      max-width: 40%;
-      margin-bottom: 24px;
+    .glow {
+      position: absolute;
+      top: 40%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      filter: blur(60px);
     }
 
     .card {
       max-width: 700px;
-      background: #fff;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 36px 28px 60px; /* mais espaço para a logo abaixo */
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
       text-align: center;
+      z-index: 2;
+      animation: fadeInUp 1s ease forwards;
+      position: relative;
     }
 
     h1 {
+      font-family: 'Inter', sans-serif;
       font-size: 18px;
-      color: #555;
+      color: #666;
       margin: 0 0 12px;
+      letter-spacing: 0.5px;
     }
 
     p {
-      font-size: 28px;
-      line-height: 1.3;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      line-height: 1.4;
       margin: 0 0 18px;
       color: #333;
+      font-weight: 600;
+    }
+
+    p::after {
+      content: " 💛";
+      font-size: 26px;
     }
 
     small {
       color: #777;
+      font-size: 15px;
+    }
+
+    /* Logo movida para dentro do card */
+    .logo {
+      width: 140px;
+      margin-top: 28px;
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.25));
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    /* Animações suaves */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:hover {
+      box-shadow: 0 14px 45px rgba(255, 215, 0, 0.25);
+      transform: translateY(-4px);
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 <body>
-  <!-- Substitua "logo.png" pelo link da sua imagem -->
-  <img src="logo.png" alt="Logo Luz para os Povos" class="logo" />
+  <div class="glow"></div>
 
   <div class="card">
     <h1>Uma palavra pra você</h1>
@@ -60,6 +106,9 @@
     <div style="margin-top:12px">
       <small>Compartilhe com alguém hoje 💛</small>
     </div>
+
+    <!-- Logo agora está dentro do card, abaixo do texto -->
+    <img src="logo.png" alt="Logo Luz para os Povos" class="logo" />
   </div>
 
   <script>
